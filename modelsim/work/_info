@@ -1,0 +1,1401 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/modelsim
+Eadd_sub
+Z1 w1476185705
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z3 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 d/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/modelsim
+Z7 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/add_sub.vhd
+Z8 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/add_sub.vhd
+l0
+L6
+V>fFT0PabV[aP0>8Jb?A]U1
+Z9 OV;C;10.1d;51
+32
+Z10 !s108 1476189821.105901
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/add_sub.vhd|
+Z12 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/add_sub.vhd|
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+!s100 fXJAg2PIEEl1C3Re:^9A^1
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 7 add_sub 0 22 >fFT0PabV[aP0>8Jb?A]U1
+l22
+L17
+VkKl>DCkaDLWEzFUW0S`oQ1
+R9
+32
+R10
+R11
+R12
+R13
+R14
+!s100 fHWlcm@0eSilK<j[LNZdI2
+!i10b 1
+Ealu
+R1
+R4
+R5
+R6
+Z15 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/ALU.vhd
+Z16 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/ALU.vhd
+l0
+L24
+VobQbD:3W`h:fjonzfXDZd2
+R9
+32
+Z17 !s108 1476189821.147722
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/ALU.vhd|
+Z19 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/ALU.vhd|
+R13
+R14
+!s100 ChQYe8>DA?bRYD^zCH4mS0
+!i10b 1
+Abdf_type
+R4
+R5
+DEx4 work 3 alu 0 22 obQbD:3W`h:fjonzfXDZd2
+l91
+L34
+Vm7<bhTXPk1K4QCFa>=UTE3
+R9
+32
+R17
+R18
+R19
+R13
+R14
+!s100 V;NeCF`:Zk>laHIAkEFe<0
+!i10b 1
+Ebus_controller_tb
+R1
+Z20 DPx4 work 14 soc_components 0 22 JK<hR7nk]kHUlgKHTIYga0
+Z21 DPx4 work 9 mem_types 0 22 zfbECN@jUZB[4e;?3W34E0
+Z22 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R4
+R5
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/bus_controller_tb.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/bus_controller_tb.vhd
+l0
+L9
+VEgzk2@6HczJ=[ZOI>n[Y@3
+R9
+32
+R13
+R14
+!s100 XR]0UHVn8oHiQZg?9L`ec2
+!i10b 1
+!s108 1476189820.456106
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/bus_controller_tb.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/bus_controller_tb.vhd|
+Ebusarbiter
+Z23 w1476186095
+R21
+R22
+R4
+R5
+R6
+Z24 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_arbiter.vhd
+Z25 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_arbiter.vhd
+l0
+L6
+V63<BbmHMZb`WJ2a]Fjfa`3
+R9
+32
+Z26 !s108 1476189821.589835
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_arbiter.vhd|
+Z28 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_arbiter.vhd|
+R13
+R14
+!s100 nlA9Ze[8^[4dchQecSAbj0
+!i10b 1
+Artl
+R21
+R22
+R4
+R5
+DEx4 work 10 busarbiter 0 22 63<BbmHMZb`WJ2a]Fjfa`3
+l19
+L17
+V<Qn?AWm>jV>IZkI3znR7`3
+R9
+32
+R26
+R27
+R28
+R13
+R14
+!s100 Nc;3B7HPC436d:e7=OzAU2
+!i10b 1
+Ebuscontroller
+w1476185917
+Z29 DPx4 work 14 mem_components 0 22 ToIKCS@ZO<5M>2l6aDBi<1
+R21
+R22
+R4
+R5
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_controller.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_controller.vhd
+l0
+L7
+VceL47o;>GUUI3ng<hehJ31
+R9
+32
+R13
+R14
+!s100 <@iKWYb2MgeUV_9Z[;?M93
+!i10b 1
+!s108 1476189821.627119
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_controller.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/bus_controller.vhd|
+Ebuttons
+R1
+R2
+R3
+R4
+R5
+R6
+Z30 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/buttons.vhd
+Z31 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/buttons.vhd
+l0
+L6
+VoWXLE=DOek4O2<c2NPa]11
+R9
+32
+Z32 !s108 1476189820.779587
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/buttons.vhd|
+Z34 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/buttons.vhd|
+R13
+R14
+!s100 8?3b_3XiOgBC0oPH_S2FD0
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 7 buttons 0 22 oWXLE=DOek4O2<c2NPa]11
+l38
+L28
+VF9k1VbRkP>7Wb41;;=Y:N1
+R9
+32
+R32
+R33
+R34
+R13
+R14
+!s100 g0m=FPkfCDAze5^ak;DVS2
+!i10b 1
+Ecache_controller_tb
+R1
+R20
+R21
+R22
+R4
+R5
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/cache_controller_tb.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/cache_controller_tb.vhd
+l0
+L9
+VDG3G3=HzX?JXod1dEOF8G0
+R9
+32
+R13
+R14
+!s100 `9e=NLnf6WKQDY5L=16QW3
+!i10b 1
+!s108 1476189820.519549
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/cache_controller_tb.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/cache_controller_tb.vhd|
+Ecachecontroller
+w1476186071
+R29
+R21
+R22
+R4
+R5
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/cache_controller.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/cache_controller.vhd
+l0
+L7
+VT5nfhaLIC[`hzkBHZR`XD1
+R9
+32
+R13
+R14
+!s100 `He0j`FSK0`9^gf:i50`Q1
+!i10b 1
+!s108 1476189821.663600
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/cache_controller.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/cache_controller.vhd|
+Eclk_pll
+R1
+R4
+R5
+R6
+Z35 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/clk_pll.vhd
+Z36 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/clk_pll.vhd
+l0
+L43
+Vhh_j`kbeAA>>gB6dKBG_f1
+R9
+32
+Z37 !s108 1476189820.811923
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/clk_pll.vhd|
+Z39 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/clk_pll.vhd|
+R13
+R14
+!s100 cY=YfL91bGO1Hn;<PS1_@3
+!i10b 1
+Asyn
+R4
+R5
+DEx4 work 7 clk_pll 0 22 hh_j`kbeAA>>gB6dKBG_f1
+l132
+L54
+VzZgBa_R[Zclofc@FRlIMN0
+R9
+32
+R37
+R38
+R39
+R13
+R14
+!s100 Tf^10AXOSH3Ah?@JjFVBn1
+!i10b 1
+Ecomparator
+R1
+R2
+R3
+R4
+R5
+R6
+Z40 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/comparator.vhd
+Z41 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/comparator.vhd
+l0
+L6
+VA;gcE`eGo<^aXE7g[GKi31
+R9
+32
+Z42 !s108 1476189821.187123
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/comparator.vhd|
+Z44 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/comparator.vhd|
+R13
+R14
+!s100 W^ZKOV3JiLBbgHeZLOASA0
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 10 comparator 0 22 A;gcE`eGo<^aXE7g[GKi31
+l19
+L18
+V7>_e@;^kPLoVno1KWNbm`3
+R9
+32
+R42
+R43
+R44
+R13
+R14
+!s100 Qnj?m3HGWN95SjP18VI4J2
+!i10b 1
+Econtroller
+R1
+R2
+R3
+R4
+R5
+R6
+Z45 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/controller.vhd
+Z46 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/controller.vhd
+l0
+L6
+VoG^bVMKnGaHRcdHW:C4n90
+R9
+32
+Z47 !s108 1476189821.234317
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/controller.vhd|
+Z49 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/controller.vhd|
+R13
+R14
+!s100 W`5HTVYKV9c3b]gUTk^Rz3
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 10 controller 0 22 oG^bVMKnGaHRcdHW:C4n90
+l47
+L44
+Vo>gnH07_7H`a5>TFIWSfP1
+R9
+32
+R47
+R48
+R49
+R13
+R14
+!s100 iAF^]zbH9XO3K4P:E@iYJ3
+!i10b 1
+Ecpu
+R1
+R4
+R5
+R6
+Z50 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/CPU.vhd
+Z51 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/CPU.vhd
+l0
+L25
+V[:@V7_X7z]]E?6[En:jE@2
+R9
+32
+Z52 !s108 1476189821.277727
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/CPU.vhd|
+Z54 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/CPU.vhd|
+R13
+R14
+!s100 bUFWl;jjmB[9lcFVOZ4lo3
+!i10b 1
+Abdf_type
+R4
+R5
+DEx4 work 3 cpu 0 22 [:@V7_X7z]]E?6[En:jE@2
+l173
+L40
+VJ^hK8VZK[ze3imD0VE`n;1
+R9
+32
+R52
+R53
+R54
+R13
+R14
+!s100 fDO[=GL<F_QY:Pi2LGCNN0
+!i10b 1
+Edataarray
+R1
+R21
+R22
+R4
+R5
+R6
+Z55 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/data_array.vhd
+Z56 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/data_array.vhd
+l0
+L6
+VVFYfS6DeKI7n7fkfC:GYF0
+R9
+32
+Z57 !s108 1476189821.701469
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/data_array.vhd|
+Z59 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/data_array.vhd|
+R13
+R14
+!s100 :9Ea;mSC4C9`W5P;1oN9i3
+!i10b 1
+Artl
+R21
+R22
+R4
+R5
+DEx4 work 9 dataarray 0 22 VFYfS6DeKI7n7fkfC:GYF0
+l28
+L18
+VBCid0J2EdX?DbVJX?j4@A2
+R9
+32
+R57
+R58
+R59
+R13
+R14
+!s100 2kn>j9coKeY2bB@]4jJ2H0
+!i10b 1
+Edecoder
+R1
+R3
+R2
+R4
+R5
+R6
+Z60 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/decoder.vhd
+Z61 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/decoder.vhd
+l0
+L5
+VFanG0QcdQHh=ooDz7kaI;1
+R9
+32
+Z62 !s108 1476189820.841366
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/decoder.vhd|
+Z64 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/decoder.vhd|
+R13
+R14
+!s100 OPL7WEk`fAa0d<9ZnK]m83
+!i10b 1
+Asynth
+R3
+R2
+R4
+R5
+DEx4 work 7 decoder 0 22 FanG0QcdQHh=ooDz7kaI;1
+l16
+L15
+VKT94elQG:mXo5h3W0RScY3
+R9
+32
+R62
+R63
+R64
+R13
+R14
+!s100 c=SML6l:?E?eBPCO=IeG51
+!i10b 1
+Eextend
+R1
+R2
+R3
+R4
+R5
+R6
+Z65 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/extend.vhd
+Z66 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/extend.vhd
+l0
+L6
+V0P5DNF6cgWcVmMjZ^5CY31
+R9
+32
+Z67 !s108 1476189821.320934
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/extend.vhd|
+Z69 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/extend.vhd|
+R13
+R14
+!s100 ;TBM?o4j@NTIojK6k[K]a2
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 6 extend 0 22 0P5DNF6cgWcVmMjZ^5CY31
+l15
+L14
+VNHA@Wd[Aef8H8b^CX^nKK0
+R9
+32
+R67
+R68
+R69
+R13
+R14
+!s100 jZ7Qh:M13XWLabzDW?H3Q3
+!i10b 1
+Efpga4u
+R1
+R20
+R22
+R21
+R4
+R5
+R6
+Z70 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U.vhd
+Z71 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U.vhd
+l0
+L7
+VUAQHk`2_XKSMhc>F0m8Qm1
+R9
+32
+Z72 !s108 1476189820.875310
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U.vhd|
+Z74 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U.vhd|
+R13
+R14
+!s100 gh6WkAUHG1?>:WZnXjIT40
+!i10b 1
+Artl
+Z75 DEx4 work 5 ram64 0 22 ABMHSAGLS77J[an4OGSmQ3
+R20
+R22
+R21
+R4
+R5
+Z76 DEx4 work 6 fpga4u 0 22 UAQHk`2_XKSMhc>F0m8Qm1
+l49
+L17
+VAc5EjReLoBXI_8j:FF[Q92
+R9
+32
+R72
+R73
+R74
+R13
+R14
+!s100 ALmkL=]1cZ`j_D19R8Q<@2
+!i10b 1
+Efpga4u_de0
+R1
+R4
+R5
+R6
+Z77 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U_DE0.vhd
+Z78 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U_DE0.vhd
+l0
+L25
+VD>SDIjSD9RO0m^zgC5B2I1
+R9
+32
+Z79 !s108 1476189820.921315
+Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U_DE0.vhd|
+Z81 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/FPGA4U_DE0.vhd|
+R13
+R14
+!s100 W]O:Xh6NRDFk@RXU4UFQm0
+!i10b 1
+Abdf_type
+R4
+R5
+DEx4 work 10 fpga4u_de0 0 22 D>SDIjSD9RO0m^zgC5B2I1
+l82
+L40
+Vj;3Y?5A6ABbdVTN`=bfn61
+R9
+32
+R79
+R80
+R81
+R13
+R14
+!s100 =5>A^>6KJ5;n1;Q4bXaQR3
+!i10b 1
+Eir
+R1
+R3
+R2
+R4
+R5
+R6
+Z82 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/IR.vhd
+Z83 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/IR.vhd
+l0
+L5
+V^X;];H`0R;1VcmRAl^H]V2
+R9
+32
+Z84 !s108 1476189821.355605
+Z85 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/IR.vhd|
+Z86 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/IR.vhd|
+R13
+R14
+!s100 F]`Wo70=T2Lo0LKL8M@G93
+!i10b 1
+Asynth
+R3
+R2
+R4
+R5
+DEx4 work 2 ir 0 22 ^X;];H`0R;1VcmRAl^H]V2
+l16
+L14
+VmZ9W9`6?fc4M9f@_2?<EA1
+R9
+32
+R84
+R85
+R86
+R13
+R14
+!s100 PKTPc[Ba_oUo0_`a>>UUj3
+!i10b 1
+Eleds
+R1
+R2
+R3
+R4
+R5
+R6
+Z87 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/LEDs.vhd
+Z88 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/LEDs.vhd
+l0
+L6
+VD0_jHIefi0[gVI5D=:<mj1
+R9
+32
+Z89 !s108 1476189820.954533
+Z90 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/LEDs.vhd|
+Z91 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/LEDs.vhd|
+R13
+R14
+!s100 f4eQml;2T4h5C2a@Q;llV1
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 4 leds 0 22 D0_jHIefi0[gVI5D=:<mj1
+l44
+L31
+VmQ6mNSf8b>_LOXN[GTjI`2
+R9
+32
+R89
+R90
+R91
+R13
+R14
+!s100 gg>HeXkL=IVMFee3HJbm60
+!i10b 1
+Elogic_unit
+R1
+R4
+R5
+R6
+Z92 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/logic_unit.vhd
+Z93 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/logic_unit.vhd
+l0
+L4
+V_HQE`l=Mz16PL5[gzVUW?2
+R9
+32
+Z94 !s108 1476189821.388241
+Z95 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/logic_unit.vhd|
+Z96 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/logic_unit.vhd|
+R13
+R14
+!s100 =2g@`Y9AieTh2c2EU@LHR0
+!i10b 1
+Asynth
+R4
+R5
+DEx4 work 10 logic_unit 0 22 _HQE`l=Mz16PL5[gzVUW?2
+l14
+L13
+VgQAioR=k`5jOQN>]dLWQ=1
+R9
+32
+R94
+R95
+R96
+R13
+R14
+!s100 AkP^i=YPzAG:M_b998dT80
+!i10b 1
+Pmem_components
+R21
+R22
+R4
+R5
+R1
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_components.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_components.vhd
+l0
+L6
+VToIKCS@ZO<5M>2l6aDBi<1
+R9
+32
+R13
+R14
+!s100 Q9DWb<1hhFniQ_74:2l0M1
+!i10b 1
+!s108 1476189821.818614
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_components.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_components.vhd|
+Pmem_types
+R22
+R4
+R5
+R1
+R6
+Z97 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_types.vhd
+Z98 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_types.vhd
+l0
+L5
+VzfbECN@jUZB[4e;?3W34E0
+R9
+32
+b1
+Z99 !s108 1476189821.852448
+Z100 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_types.vhd|
+Z101 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/mem_types.vhd|
+R13
+R14
+!s100 64LGz9oBdCeUdb_8z>>UL1
+!i10b 1
+Bbody
+R21
+R22
+R4
+R5
+l0
+L68
+V7H5e`Kh?C`=K2B?=ghUd;0
+!s100 ]1X2_;aOc@Z1N3dQ<jfoJ0
+R9
+32
+R99
+R100
+R101
+R13
+R14
+nbody
+!i10b 1
+Emultiplexer
+R1
+R2
+R3
+R4
+R5
+R6
+Z102 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/multiplexer.vhd
+Z103 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/multiplexer.vhd
+l0
+L6
+V=H5ANXWeSicoSj64d:I5;3
+R9
+32
+Z104 !s108 1476189821.428534
+Z105 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/multiplexer.vhd|
+Z106 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/multiplexer.vhd|
+R13
+R14
+!s100 am6PN@aLIzGXz=LdVH1h01
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 11 multiplexer 0 22 =H5ANXWeSicoSj64d:I5;3
+l18
+L17
+VD_XM[IIOiW]lD3k]oEG<G3
+R9
+32
+R104
+R105
+R106
+R13
+R14
+!s100 ]N_36UH<7d8>2f:b:=YHf1
+!i10b 1
+Emultiprocessortestbench
+R1
+R4
+R5
+R6
+Z107 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/MultiprocessorTestbench.vhd
+Z108 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/MultiprocessorTestbench.vhd
+l0
+L6
+V7L9IezG1^W9em50KJc]Ac1
+R9
+32
+Z109 !s108 1476189820.572984
+Z110 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/MultiprocessorTestbench.vhd|
+Z111 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/MultiprocessorTestbench.vhd|
+R13
+R14
+!s100 Z?TZ;KcKCZ05Tdo2zWQ7R0
+!i10b 1
+Atest
+R20
+R22
+R21
+R76
+R4
+R5
+DEx4 work 23 multiprocessortestbench 0 22 7L9IezG1^W9em50KJc]Ac1
+l18
+L10
+V]HL^oNL3[VfSbg13CKB;:3
+R9
+32
+R109
+R110
+R111
+R13
+R14
+!s100 d]XJ[GW=Z2<EoLTM0=G8A1
+!i10b 1
+Emux2x16
+R1
+R2
+R3
+R4
+R5
+R6
+Z112 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x16.vhd
+Z113 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x16.vhd
+l0
+L6
+Vc^i_bCX6;T@Zdj8O=<@1W1
+R9
+32
+Z114 !s108 1476189820.679207
+Z115 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x16.vhd|
+Z116 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x16.vhd|
+R13
+R14
+!s100 4VSHY4@c[=KZ:;fO1=[US3
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 7 mux2x16 0 22 c^i_bCX6;T@Zdj8O=<@1W1
+l16
+L15
+Va]W>c<OU3IH8W9MXjHl[;0
+R9
+32
+R114
+R115
+R116
+R13
+R14
+!s100 o_E1gjFQFi6m6e:niC5A63
+!i10b 1
+Emux2x32
+R1
+R2
+R3
+R4
+R5
+R6
+Z117 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x32.vhd
+Z118 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x32.vhd
+l0
+L6
+VC?jW<7SO]F=zCnj`2^?D01
+R9
+32
+Z119 !s108 1476189820.713878
+Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x32.vhd|
+Z121 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x32.vhd|
+R13
+R14
+!s100 YGCK>LW?dh4VdCI>TPgFS1
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 7 mux2x32 0 22 C?jW<7SO]F=zCnj`2^?D01
+l16
+L15
+VCgLzX0i`NS5nGX9okjzY=3
+R9
+32
+R119
+R120
+R121
+R13
+R14
+!s100 8zJHXZcadSg`R;Q]^Eabc2
+!i10b 1
+Emux2x5
+R1
+R2
+R3
+R4
+R5
+R6
+Z122 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x5.vhd
+Z123 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x5.vhd
+l0
+L6
+VZBM4o>U>iImMO>oMRV2AE3
+R9
+32
+Z124 !s108 1476189820.648567
+Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x5.vhd|
+Z126 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux2x5.vhd|
+R13
+R14
+!s100 f]X^zjkA^:MXDNPlN7V>a2
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 6 mux2x5 0 22 ZBM4o>U>iImMO>oMRV2AE3
+l16
+L15
+VC@ZK4_hI^=4R7:d3`cCgS3
+R9
+32
+R124
+R125
+R126
+R13
+R14
+!s100 D6VM@>mm98C3gFLQ6b?kK0
+!i10b 1
+Emux3x32en
+R1
+R2
+R3
+R4
+R5
+R6
+Z127 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux3x32en.vhd
+Z128 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux3x32en.vhd
+l0
+L6
+Vj^9W6NhkZXQDzz8i7][aT1
+R9
+32
+Z129 !s108 1476189820.747414
+Z130 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux3x32en.vhd|
+Z131 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/common/mux3x32en.vhd|
+R13
+R14
+!s100 ;7]REmi1I0mSchLhAe:le2
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 9 mux3x32en 0 22 j^9W6NhkZXQDzz8i7][aT1
+l18
+L17
+VT]2LC^?eHO<nCMoUTUAcb2
+R9
+32
+R129
+R130
+R131
+R13
+R14
+!s100 SU0U=1=5FCM21RzgRoWYk2
+!i10b 1
+Ppack
+R2
+R3
+R4
+R5
+R1
+R6
+Z132 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/rgb_led96.vhd
+Z133 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/rgb_led96.vhd
+l0
+L12
+V7iUUCG9M1QUa5KU4E]_DV0
+R9
+32
+b1
+Z134 !s108 1476189820.991890
+Z135 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/rgb_led96.vhd|
+Z136 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/rgb_led96.vhd|
+R13
+R14
+!s100 0;U4BbHoJKf^kc;Ml?=lV2
+!i10b 1
+Bbody
+Z137 DPx4 work 4 pack 0 22 7iUUCG9M1QUa5KU4E]_DV0
+R2
+R3
+R4
+R5
+l0
+L17
+VFHzijETzMjC`?eR_:H^UH3
+R9
+32
+R134
+R135
+R136
+R13
+R14
+nbody
+!s100 TWzfRmVm6OKY4YWXG^WPN3
+!i10b 1
+Epc
+R1
+R3
+R2
+R4
+R5
+R6
+Z138 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/PC.vhd
+Z139 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/PC.vhd
+l0
+L5
+V:TQOTThBkJBVeNdW[=aJF0
+R9
+32
+Z140 !s108 1476189821.475635
+Z141 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/PC.vhd|
+Z142 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/PC.vhd|
+R13
+R14
+!s100 TAGBENj?g3CMP?S8mZKWm3
+!i10b 1
+Asynth
+R3
+R2
+R4
+R5
+DEx4 work 2 pc 0 22 :TQOTThBkJBVeNdW[=aJF0
+l61
+L56
+V;`3lz;ee5]bHZaSF0nh_R3
+R9
+32
+R140
+R141
+R142
+R13
+R14
+!s100 3VFaSSAVmLLdmi1SC78Va0
+!i10b 1
+Eram64
+R1
+R21
+R22
+R4
+R5
+R6
+Z143 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/ram64.vhd
+Z144 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/ram64.vhd
+l0
+L6
+VABMHSAGLS77J[an4OGSmQ3
+R9
+32
+Z145 !s108 1476189821.736980
+Z146 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/ram64.vhd|
+Z147 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/ram64.vhd|
+R13
+R14
+!s100 =<PY5<j42eH9M;l<V2V:73
+!i10b 1
+Asynth
+R21
+R22
+R4
+R5
+R75
+l34
+L20
+VF[On]?lPXFez<6_zWJ>n80
+R9
+32
+R145
+R146
+R147
+R13
+R14
+!s100 a;_6JF1YARo]YUZF9WcE?2
+!i10b 1
+Eregister_file
+R1
+R3
+R2
+R4
+R5
+R6
+Z148 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/register_file.vhd
+Z149 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/register_file.vhd
+l0
+L5
+VKC<JZhD=0BE;zZfn<R_=g2
+R9
+32
+Z150 !s108 1476189821.516581
+Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/register_file.vhd|
+Z152 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/register_file.vhd|
+R13
+R14
+!s100 4lgA6kaMRKJz6T9beKn<o0
+!i10b 1
+Asynth
+R3
+R2
+R4
+R5
+DEx4 work 13 register_file 0 22 KC<JZhD=0BE;zZfn<R_=g2
+l23
+L18
+Vl8Am6_eZeXMRhJQ]o<eIa2
+R9
+32
+R150
+R151
+R152
+R13
+R14
+!s100 m_lI]jY=Poc`acG6YE0AW1
+!i10b 1
+Ergb_led96
+R1
+R137
+R3
+R2
+R4
+R5
+R6
+R132
+R133
+l0
+L46
+VeJlMhQkkbSh<UnW^CRTgo1
+R9
+32
+R134
+R135
+R136
+R13
+R14
+!s100 oFg3=V>OL?8>`cPdzFIjQ0
+!i10b 1
+Aarch
+R137
+R3
+R2
+R4
+R5
+DEx4 work 9 rgb_led96 0 22 eJlMhQkkbSh<UnW^CRTgo1
+l144
+L80
+VdIFPa5VB^o=Vo1f=ZWJ>g3
+R9
+32
+R134
+R135
+R136
+R13
+R14
+!s100 A_^hUfkaGPo3z`cz@JNRa3
+!i10b 1
+Erom
+R1
+R3
+R2
+R4
+R5
+R6
+Z153 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM.vhd
+Z154 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM.vhd
+l0
+L5
+V?NRUOW7k9IXPDBC`Rk6832
+R9
+32
+Z155 !s108 1476189821.030974
+Z156 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM.vhd|
+Z157 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM.vhd|
+R13
+R14
+!s100 ==zDNbDhezG`>;[mSNBU_1
+!i10b 1
+Asynth
+R3
+R2
+R4
+R5
+DEx4 work 3 rom 0 22 ?NRUOW7k9IXPDBC`Rk6832
+l37
+L21
+V7MMi;4;:470oF^?Zm@]4n0
+R9
+32
+R155
+R156
+R157
+R13
+R14
+!s100 gUl_bG^FQ>YF_C`I;8UWV0
+!i10b 1
+Erom_block
+R1
+R4
+R5
+R6
+Z158 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM_Block.vhd
+Z159 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM_Block.vhd
+l0
+L42
+Vig1le5]EM7LWbX8m]?W771
+R9
+32
+Z160 !s108 1476189821.068760
+Z161 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM_Block.vhd|
+Z162 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/soc/ROM_Block.vhd|
+R13
+R14
+!s100 =[Z=b=XXDKY:89?5:EGW30
+!i10b 1
+Asyn
+R4
+R5
+DEx4 work 9 rom_block 0 22 ig1le5]EM7LWbX8m]?W771
+l84
+L54
+Vzb4Z1Ho84`4WmUA:`HeRQ2
+R9
+32
+R160
+R161
+R162
+R13
+R14
+!s100 QL90E_GE7EcQCi6[NY:M30
+!i10b 1
+Eshift_unit
+R1
+R2
+R3
+R4
+R5
+R6
+Z163 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/shift_unit.vhd
+Z164 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/shift_unit.vhd
+l0
+L6
+Vg^[GK44Q1H<Q]meoSD6D<3
+R9
+32
+Z165 !s108 1476189821.550628
+Z166 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/shift_unit.vhd|
+Z167 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/core/shift_unit.vhd|
+R13
+R14
+!s100 hY6n8]5nL=P?E8OIHnYL>0
+!i10b 1
+Asynth
+R2
+R3
+R4
+R5
+DEx4 work 10 shift_unit 0 22 g^[GK44Q1H<Q]meoSD6D<3
+l19
+L15
+V8AI`c[M4KG_KKghhWV5fB0
+R9
+32
+R165
+R166
+R167
+R13
+R14
+!s100 eH2MKoLUL7USNe0Qo3Shh2
+!i10b 1
+Psoc_components
+R21
+R22
+R4
+R5
+R1
+R6
+8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/soc_components.vhd
+F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/soc_components.vhd
+l0
+L7
+VJK<hR7nk]kHUlgKHTIYga0
+!s100 T5ijGMj4KNMB1RWdUFG6=3
+R9
+32
+!i10b 1
+!s108 1476189821.894751
+!s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/soc_components.vhd|
+!s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/includes/soc_components.vhd|
+R13
+R14
+Etagarray
+R1
+R21
+R22
+R4
+R5
+R6
+Z168 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/tag_array.vhd
+Z169 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/tag_array.vhd
+l0
+L6
+VO<B]28;8XU=JMz5d[ceb`3
+R9
+32
+Z170 !s108 1476189821.778389
+Z171 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/tag_array.vhd|
+Z172 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/memory_hierarchy/tag_array.vhd|
+R13
+R14
+!s100 aTHGh6Rbz=UzTo>hZG4U22
+!i10b 1
+Artl
+R21
+R22
+R4
+R5
+DEx4 work 8 tagarray 0 22 O<B]28;8XU=JMz5d[ceb`3
+l53
+L18
+V0VOz:X]@;484>UGNRnlIa3
+R9
+32
+R170
+R171
+R172
+R13
+R14
+!s100 9C^eIIa8jE^BS?]Zka5mk2
+!i10b 1
+Etb_base
+R1
+R4
+R5
+R6
+Z173 8/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/tb_base.vhd
+Z174 F/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/tb_base.vhd
+l0
+L6
+VdS6?iYam>MBNIW>O84T311
+R9
+32
+Z175 !s108 1476189820.618494
+Z176 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/tb_base.vhd|
+Z177 !s107 /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/handout/vhdl/testbenches/tb_base.vhd|
+R13
+R14
+!s100 YOdG_hoJQ8=>7RbHE>U1K0
+!i10b 1
+Atest
+R4
+R5
+DEx4 work 7 tb_base 0 22 dS6?iYam>MBNIW>O84T311
+l14
+L10
+V7PB[O>QQER7SYEZ8ecbaH3
+R9
+32
+R175
+R176
+R177
+R13
+R14
+!s100 b[bj5LmeL<XGaSmgmkLHf0
+!i10b 1
