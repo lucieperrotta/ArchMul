@@ -35,27 +35,34 @@ begin  -- architecture rtl
   begin  -- process comb_proc
     -- signals that need initialization here
     busStNext <= busSt;
+
     -- signal with dont care initialization here
+	--Default values (internal flags):
+	arbiterArbitrate<=0;
+	busOutEn<=0;
+	--Default values (outputs):
+	busGrant<=0;
+	memCs<=0;
 
     -- control: state machine
     case busSt is
       when ST_IDLE => -- I AM NOT SURE ABOUT WHAT IM DOING HELP ME
 	if arbiterReqValid = '1' then
-	  busSt <= ST_GRANT; -- not sure what actual and next state are
+	  busStNext <= ST_GRANT;
 	end if;
 
       when ST_GRANT =>
 	arbiterArbitrate <= '1';
-	busGrant[arbiterReqId] <= '1';
+	busGrant(to_integer(unsigned(arbiterReqId))) <= '1';
 	memCs <= '1';
-	busSt <= ST_WAIT_MEM;
+	busStNext <= ST_WAIT_MEM;
 
       when ST_WAIT_MEM =>
 	if memDone = '1' then
-	  -- bus out en = 1 ?????????????????
-	else busGrant[arbiterReqId] <= '1';
+		busOutEn <= 1; --????? but out en ? try state buffer
+	else busGrant(to_integer(unsigned(arbiterReqId))) <= '1';
 	end if;
-	busSt <= ST_IDLE;
+	busStNext <= ST_IDLE;
 
       when others => null;
     end case;
