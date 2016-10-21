@@ -163,28 +163,32 @@ begin  -- architecture rtl
       -----------------------------------------------------------------------
       when ST_WR_HIT_TEST =>
 	if tagHitEn = '1' then
-		cacheDone<='1';
-		tagWrEn<='1';
-		tagWrSet<=tagHitSet;
-		tagWrDirty<='1';
-		tagAddr<=cpuReqRegAddr;
-		dataArrayWrEn<='1';
-		dataArrayWrWord<='1';
-		dataArrayWrSetIdx<=tagHitSet;
-		dataArrayWrData<=cpuReqRegData;
+		cacheDone <= '1';
+		tagWrEn <= '1';
+		tagWrSet <= tagHitSet;
+		tagWrDirty <= '1';
+		tagAddr <= cpuReqRegAddr;
+		dataArrayWrEn <= '1';
+		dataArrayWrWord <= '1';
+		dataArrayWrSetIdx <= tagHitSet;
+		dataArrayWrData <= cpuReqRegData;
+		
 		cacheSt <= ST_IDLE;
-	else cacheSt <= ST_WR_WAIT_BUS_GRANT;
+	else
+		cacheSt <= ST_WR_WAIT_BUS_GRANT;
 	end if;
 
       when ST_WR_WAIT_BUS_GRANT =>
 	if busGrant = '1' then
-		busReq<='1';
-		busOutEn<='1';
-		busCmd<=BUS_WRITE_WORD;
-		busAddrIn<=cpuRegReqAddr;
-		busDataIn<=cpuReqRegData;
+		busReq <= '1';
+		busOutEn <= '1';
+		busCmd <= BUS_WRITE_WORD;
+		busAddrIn <= cpuRegReqAddr;
+		busDataIn <= cpuReqRegData;
+		
 		cacheSt <= ST_WR_WAIT_BUS_COMPLETE;
-	else busReq <= '1';
+	else
+		busReq <= '1';
 	end if;
 
       when ST_WR_WAIT_BUS_COMPLETE =>

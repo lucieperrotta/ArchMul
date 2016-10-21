@@ -55,14 +55,17 @@ begin  -- architecture rtl
 	arbiterArbitrate <= '1';
 	busGrant(to_integer(unsigned(arbiterReqId))) <= '1';
 	memCs <= '1';
+	
 	busStNext <= ST_WAIT_MEM;
 
       when ST_WAIT_MEM =>
 	if memDone = '1' then
-		busOutEn <= 1; --????? but out en ? try state buffer
-	else busGrant(to_integer(unsigned(arbiterReqId))) <= '1';
+		busOutEn <= '1'; --????? but out en ? try state buffer
+		
+		busStNext <= ST_IDLE;
+	else
+		busGrant(to_integer(unsigned(arbiterReqId))) <= '1';
 	end if;
-	busStNext <= ST_IDLE;
 
       when others => null;
     end case;
