@@ -44,10 +44,22 @@ architecture rtl of CacheController is
 begin  -- architecture rtl
 
   comb_proc : process () is
-  begin  -- process comb_proc
+   begin  -- process comb_proc
     -- signals that need initialization
     cacheStNext <= cacheSt;
-
+	-- Default values (internal flags):
+	cpuReqRegWrEn <= 0;
+	victimRegWrEn <= 0;
+	tagLookupEn <= 0;
+	tagWrEn <= 0;
+	tagWrSetDirty <= 0;
+	dataArrayWrEn <= 0;
+	dataArrayWrWord <= 0;
+	busOutEn <= 0;
+	cacheRdOutEn <= 0;
+	-- Default values (outputs):
+	cacheDone <= 0;
+	busReq <= 0;
     -- signals with dont care initialization
 
     -- control: state machine
@@ -63,76 +75,86 @@ begin  -- architecture rtl
 	  elsif cacheRead = '1' then
 		cacheSt <= ST_RD_HIT_TEST;
 	  end if;
-      end if;
+    end if;
       -----------------------------------------------------------------------
       -- rd state machine
       -----------------------------------------------------------------------
       when ST_RD_HIT_TEST =>
 	if tagHitEn = '1' then
-		cacheRdOutEn<='1';
-		cacheRdData<=dataArrayRdData;
-		[tagHitSet][cpuReqReg] -- what is this line ?
 		cacheDone <= '1';
+		cacheRdOutEn <= '1';
+		cacheRdData <= dataArrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord))); -- what is this line ?
 		cacheSt <= ST_IDLE;
-	else	victimRegWrEn<='1';
+	else
+		victimRegWrEn <= '1';
 		cacheSt <= ST_RD_WAIT_BUS_GRANT_ACC;
 
       when ST_RD_WAIT_BUS_GRANT_ACC =>
 	if busGrant = '1' then
-		busReq<='1';
-		busOutEn<='1';
-		busCmd<= BUS_READ;
-		busAddrIn<=cpuReqRegAddr;
+		busReq <= '1';
+		busOutEn <= '1';
+		busCmd <= BUS_READ;
+		busAddrIn <= cpuReqRegAddr;
 		cacheSt <= ST_RD_WAIT_BUS_COMPLETE_ACC;
-	else	busReq<='1';
+	else
+		busReq <= '1';
 
       when ST_RD_WAIT_BUS_COMPLETE_ACC =>
 	if busGrant != '1' then
-		if tagVictimDirty = '1' then
+		if victimRegDirty = '1' then
 			-- writing cache block
-			tagWrEn<='1';
-			tagWrSet<=victimSet;
-			tagWrDirty<='0';
-			tagAddr<=cpuReqRegAddr;
-			dataArrayWrEn<='1';
-			dataArrayWrSetIdx <=victimSet;
-			dataArrayWrWord<='0';
-			dataArrayData<=busData;
+			tagWrEn <= '1';
+			tagWrSet <= victimSet;
+			tagWrDirty <= '0';
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			
 			cacheSt <= ST_RD_WAIT_BUS_GRANT_WB;
 		
-		else 	cacheRdData<=busDataWord;
-			cacheRdOutEn<='1';
+		else
+			cacheDone <= '1';
+			cacheRdOutEn <= '1';
+			cacheRdData <= busDataWord;
 			[cpuReqRegWord] -- ???
-			cacheDone<='1';
+			
 			-- writing cache block
-			tagWrEn<='1';
-			tagWrSet<=victimSet;
-			tagWrDirty<='0';
-			tagAddr<=cpuReqRegAddr;
-			dataArrayWrEn<='1';
-			dataArrayWrSetIdx<=victimSet;
-			dataArrayWrWord<='0';
-			dataArrayData<=busData;
+			tagWrEn <= '1';
+			tagWrSet <= victimSet;
+			tagWrDirty <= '0';
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			
 			cacheSt <= ST_IDLE;
 		end if;
 	end if;
 
       when ST_RD_WAIT_BUS_GRANT_WB =>
 	if busGrant = '1' then
-		busReq<='1';
-		busOutEn<='1';
-		busCmdIn<=BUS_WRITE;
-		busAddrIn<=victimRegAddr;
-		busDataIn<=victimRegData;
+		busReq <= '1';
+		busOutEn <= '1';
+		busCmdIn <= BUS_WRITE;
+		busAddrIn <= victimRegAddr;
+		busDataIn <= victimRegData;
+		
 		cacheSt <= ST_RD_WAIT_BUS_GRANT COMPLETE;
-	else busReq<='1';
+	else
+		busReq <= '1';
 	end if;
 
       when ST_RD_WAIT_BUS_GRANT COMPLETE =>
-	if busGrant = '1' =>
-		dataArrayAddr<=cpuReqRegAddr;
-	else 	cacheRdData<=dataArrayRdData[tagHitSet][cpuReqRegWord];
-		cacheDone<='1';
+	if busGrant = '1' then
+		dataArrayAddr <= cpuReqRegAddr;
+	else 
+		cacheDone <= '1';
+		cacheRdOutEn <= '1';
+		cacheRdData <= rrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord)));
+		
 		cacheSt <= ST_IDLE;
 	end if;
 
