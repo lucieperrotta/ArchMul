@@ -46,7 +46,7 @@ begin  -- architecture rtl
 
     -- control: state machine
     case busSt is
-      when ST_IDLE => -- I AM NOT SURE ABOUT WHAT IM DOING HELP ME
+      when ST_IDLE =>
 	if arbiterReqValid = '1' then
 	  busStNext <= ST_GRANT;
 	end if;
@@ -60,7 +60,7 @@ begin  -- architecture rtl
 
       when ST_WAIT_MEM =>
 	if memDone = '1' then
-		busOutEn <= '1'; --????? but out en ? try state buffer
+		busOutEn <= '1'; --????? "bus out en" ? ---> TODO: try state buffer
 		
 		busStNext <= ST_IDLE;
 	else

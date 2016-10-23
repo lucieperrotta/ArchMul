@@ -71,9 +71,9 @@ begin  -- architecture rtl
 	  tagAddr <= cacheAddr;
 	  tagLookupEn <= '1';
 	  if cacheWrite = '1' then
-		cacheSt <= ST_WR_HIT_TEST;
+		cacheStNext <= ST_WR_HIT_TEST;
 	  elsif cacheRead = '1' then
-		cacheSt <= ST_RD_HIT_TEST;
+		cacheStNext <= ST_RD_HIT_TEST;
 	  end if;
     end if;
       -----------------------------------------------------------------------
@@ -84,10 +84,10 @@ begin  -- architecture rtl
 		cacheDone <= '1';
 		cacheRdOutEn <= '1';
 		cacheRdData <= dataArrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord))); -- what is this line ?
-		cacheSt <= ST_IDLE;
+		cacheStNext <= ST_IDLE;
 	else
 		victimRegWrEn <= '1';
-		cacheSt <= ST_RD_WAIT_BUS_GRANT_ACC;
+		cacheStNext <= ST_RD_WAIT_BUS_GRANT_ACC;
 
       when ST_RD_WAIT_BUS_GRANT_ACC =>
 	if busGrant = '1' then
@@ -95,7 +95,7 @@ begin  -- architecture rtl
 		busOutEn <= '1';
 		busCmd <= BUS_READ;
 		busAddrIn <= cpuReqRegAddr;
-		cacheSt <= ST_RD_WAIT_BUS_COMPLETE_ACC;
+		cacheStNext <= ST_RD_WAIT_BUS_COMPLETE_ACC;
 	else
 		busReq <= '1';
 
@@ -112,14 +112,12 @@ begin  -- architecture rtl
 			dataArrayWrWord <= '0';
 			dataArrayData <= busData;
 			
-			cacheSt <= ST_RD_WAIT_BUS_GRANT_WB;
+			cacheStNext <= ST_RD_WAIT_BUS_GRANT_WB;
 		
 		else
 			cacheDone <= '1';
 			cacheRdOutEn <= '1';
 			cacheRdData <= busDataWord;
-			[cpuReqRegWord] -- ???
-			
 			-- writing cache block
 			tagWrEn <= '1';
 			tagWrSet <= victimSet;
@@ -130,7 +128,7 @@ begin  -- architecture rtl
 			dataArrayWrWord <= '0';
 			dataArrayData <= busData;
 			
-			cacheSt <= ST_IDLE;
+			cacheStNext <= ST_IDLE;
 		end if;
 	end if;
 
@@ -142,7 +140,7 @@ begin  -- architecture rtl
 		busAddrIn <= victimRegAddr;
 		busDataIn <= victimRegData;
 		
-		cacheSt <= ST_RD_WAIT_BUS_GRANT COMPLETE;
+		cacheStNext <= ST_RD_WAIT_BUS_GRANT COMPLETE;
 	else
 		busReq <= '1';
 	end if;
@@ -155,7 +153,7 @@ begin  -- architecture rtl
 		cacheRdOutEn <= '1';
 		cacheRdData <= rrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord)));
 		
-		cacheSt <= ST_IDLE;
+		cacheStNext <= ST_IDLE;
 	end if;
 
       -----------------------------------------------------------------------
@@ -173,9 +171,9 @@ begin  -- architecture rtl
 		dataArrayWrSetIdx <= tagHitSet;
 		dataArrayWrData <= cpuReqRegData;
 		
-		cacheSt <= ST_IDLE;
+		cacheStNext <= ST_IDLE;
 	else
-		cacheSt <= ST_WR_WAIT_BUS_GRANT;
+		cacheStNext <= ST_WR_WAIT_BUS_GRANT;
 	end if;
 
       when ST_WR_WAIT_BUS_GRANT =>
@@ -186,7 +184,7 @@ begin  -- architecture rtl
 		busAddrIn <= cpuRegReqAddr;
 		busDataIn <= cpuReqRegData;
 		
-		cacheSt <= ST_WR_WAIT_BUS_COMPLETE;
+		cacheStNext <= ST_WR_WAIT_BUS_COMPLETE;
 	else
 		busReq <= '1';
 	end if;
@@ -194,7 +192,7 @@ begin  -- architecture rtl
       when ST_WR_WAIT_BUS_COMPLETE =>
 	if busGrant != '1' then
 		cacheDone <= '1';
-		cacheSt <= ST_IDLE;
+		cacheStNext <= ST_IDLE;
 	end if;
 
       when others => null;
