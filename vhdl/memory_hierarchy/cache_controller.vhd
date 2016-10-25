@@ -237,27 +237,27 @@ begin  -- architecture rtl
       -- there should be more stuff here
 	  
 	  -- here is the VictimReg block
-	if victimRegWrEn = '1' then
-		victimReqSetIn <= tagVictimSet;
-		victimRegDirtyIn <= tagVictimDirty;
-		victimRegAddrIn <= tagVictimAddr;
-		if tagVictimSet = '1' then
-			victimRegDataIn <= dataArrayRdData;
+		if victimRegWrEn = '1' then
+			victimReqSetIn <= tagVictimSet;
+			victimRegDirtyIn <= tagVictimDirty;
+			victimRegAddrIn <= tagVictimAddr;
+			-- pas sûre que ça marche
+			if tagVictimSet = '1' then
+				victimRegDataIn <= dataArrayRdData;
+			end if;
+			victimRegAddr <= victimRegAddr;
+			victimRegData <= victimRegData;
 		end if;
-		
-		victimRegAddr <= victimRegAddr;
-		victimRegData <= victimRegData;
-	end if;
-	  
-	  -- here is the CpuReqReg block
-	if cpuReqRegWrEn = '1' then
-		cpuReqRegAddrIn <= cacheAddr;
-		cpuReqRegDataIn <= cacheWrData;
-		
-		cpuRegReqWord <= cpuReqRegWord;
-		busAddrIn <= cpuRegReqAddr & victimRegAddr;
-		busDataIn <= cpuReqRegData & victimRegData;
-	end if
+		  
+		  -- here is the CpuReqReg block
+		if cpuReqRegWrEn = '1' then
+			cpuReqRegAddrIn <= cacheAddr;
+			cpuReqRegDataIn <= cacheWrData;
+			
+			cpuRegReqWord <= cpuReqRegWord;
+			busAddrIn <= cpuRegReqAddr & victimRegAddr;
+			busDataIn <= cpuReqRegData & victimRegData;
+		end if
 	  
   end process clk_proc;
 
