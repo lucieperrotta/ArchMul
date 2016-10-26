@@ -44,6 +44,9 @@ begin  -- architecture rtl
 	busGrant<=0;
 	memCs<=0;
 
+	-- tri state buffer
+	busData <= (others => 'Z'); 
+
     -- control: state machine
     case busSt is
       when ST_IDLE =>
@@ -60,7 +63,7 @@ begin  -- architecture rtl
 
       when ST_WAIT_MEM =>
 	if memDone = '1' then
-		busOutEn <= '1'; --????? "bus out en" ? ---> TODO: try state buffer
+		busData <= memRdData; --busOutEn <= '1'; (tri state buffer)
 		
 		busStNext <= ST_IDLE;
 	else

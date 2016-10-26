@@ -44,9 +44,29 @@ architecture rtl of CacheController is
 begin  -- architecture rtl
 
   comb_proc : process () is
-  begin  -- process comb_proc
+   begin  -- process comb_proc
     -- signals that need initialization
     cacheStNext <= cacheSt;
+	-- Default values (internal flags):
+	cpuReqRegWrEn <= 0;
+	victimRegWrEn <= 0;
+	tagLookupEn <= 0;
+	tagWrEn <= 0;
+	tagWrSetDirty <= 0;
+	dataArrayWrEn <= 0;
+	dataArrayWrWord <= 0;
+	
+	-- Default values (outputs):
+	cacheDone <= 0;
+	busReq <= 0;
+
+	-- Tri State Buffer READ DATA Default Outputs ( cacheRdOutEn <= '0' )
+	cacheRdData <= (others => 'Z'); 
+
+	-- Tri State Buffer BUS Default Outputs ( busOutEn <= '0' )
+	busCmd <= (others => 'Z'); 
+	busAddr <= (others => 'Z'); 
+	busData <= (others => 'Z'); 
 
     -- signals with dont care initialization
 
@@ -59,81 +79,97 @@ begin  -- architecture rtl
 	  tagAddr <= cacheAddr;
 	  tagLookupEn <= '1';
 	  if cacheWrite = '1' then
-		cacheSt <= ST_WR_HIT_TEST;
+		cacheStNext <= ST_WR_HIT_TEST;
 	  elsif cacheRead = '1' then
-		cacheSt <= ST_RD_HIT_TEST;
+		cacheStNext <= ST_RD_HIT_TEST;
 	  end if;
-      end if;
+    end if;
       -----------------------------------------------------------------------
       -- rd state machine
       -----------------------------------------------------------------------
       when ST_RD_HIT_TEST =>
 	if tagHitEn = '1' then
-		cacheRdOutEn<='1';
-		cacheRdData<=dataArrayRdData;
-		[tagHitSet][cpuReqReg] -- what is this line ?
 		cacheDone <= '1';
-		cacheSt <= ST_IDLE;
-	else	victimRegWrEn<='1';
-		cacheSt <= ST_RD_WAIT_BUS_GRANT_ACC;
+
+		--TRI STATE READ DATA (cacheRdOutEn <= '1' )
+		cacheRdData <= dataArrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord))); -- what is this line ?
+		
+		cacheStNext <= ST_IDLE;
+	else
+		victimRegWrEn <= '1';
+		cacheStNext <= ST_RD_WAIT_BUS_GRANT_ACC;
 
       when ST_RD_WAIT_BUS_GRANT_ACC =>
 	if busGrant = '1' then
-		busReq<='1';
-		busOutEn<='1';
-		busCmd<= BUS_READ;
-		busAddrIn<=cpuReqRegAddr;
-		cacheSt <= ST_RD_WAIT_BUS_COMPLETE_ACC;
-	else	busReq<='1';
+		busReq <= '1';
+
+		--TRI STATE BUS ( busOutEn <= '1' )
+		busAddr <= cpuReqRegAddr;
+
+		busCmd <= BUS_READ;		
+		cacheStNext <= ST_RD_WAIT_BUS_COMPLETE_ACC;
+	else
+		busReq <= '1';
 
       when ST_RD_WAIT_BUS_COMPLETE_ACC =>
 	if busGrant != '1' then
-		if tagVictimDirty = '1' then
+		if victimRegDirty = '1' then
 			-- writing cache block
-			tagWrEn<='1';
-			tagWrSet<=victimSet;
-			tagWrDirty<='0';
-			tagAddr<=cpuReqRegAddr;
-			dataArrayWrEn<='1';
-			dataArrayWrSetIdx <=victimSet;
-			dataArrayWrWord<='0';
-			dataArrayData<=busData;
-			cacheSt <= ST_RD_WAIT_BUS_GRANT_WB;
+			tagWrEn <= '1';
+			tagWrSet <= victimSet;
+			tagWrDirty <= '0';
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			
+			cacheStNext <= ST_RD_WAIT_BUS_GRANT_WB;
 		
-		else 	cacheRdData<=busDataWord;
-			cacheRdOutEn<='1';
-			[cpuReqRegWord] -- ???
-			cacheDone<='1';
+		else
+			cacheDone <= '1';
+
+ 			-- TRI STATE READ DATA (cacheRdOutEn <= '1')
+			cacheRdData <= busDataWord;
+
 			-- writing cache block
-			tagWrEn<='1';
-			tagWrSet<=victimSet;
-			tagWrDirty<='0';
-			tagAddr<=cpuReqRegAddr;
-			dataArrayWrEn<='1';
-			dataArrayWrSetIdx<=victimSet;
-			dataArrayWrWord<='0';
-			dataArrayData<=busData;
-			cacheSt <= ST_IDLE;
+			tagWrEn <= '1';
+			tagWrSet <= victimSet;
+			tagWrDirty <= '0';
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			
+			cacheStNext <= ST_IDLE;
 		end if;
 	end if;
 
       when ST_RD_WAIT_BUS_GRANT_WB =>
-		if busGrant = '1' then
-			busReq<='1';
-			busOutEn<='1';
-			busCmdIn<=BUS_WRITE;
-			busAddrIn<=victimRegAddr;
-			busDataIn<=victimRegData;
-			cacheSt <= ST_RD_WAIT_BUS_GRANT COMPLETE;
-		else busReq<='1';
-		end if;
+	if busGrant = '1' then
+		busReq <= '1';
+
+		--TRI STATE BUS ( busOutEn <= '1' )
+		busCmd <= BUS_WRITE;
+		busAddr <= victimRegAddr;
+		busData <= victimRegData;
+		
+		cacheStNext <= ST_RD_WAIT_BUS_GRANT COMPLETE;
+	else
+		busReq <= '1';
+	end if;
 
       when ST_RD_WAIT_BUS_GRANT COMPLETE =>
-	if busGrant = '1' =>
-		dataArrayAddr<=cpuReqRegAddr;
-	else 	cacheRdData<=dataArrayRdData[tagHitSet][cpuReqRegWord];
-		cacheDone<='1';
-		cacheSt <= ST_IDLE;
+	if busGrant = '1' then
+		dataArrayAddr <= cpuReqRegAddr;
+	else 
+		cacheDone <= '1';
+
+		-- TRI STATE READ DATA (cacheRdOutEn <= '1')
+		cacheRdData <= rrayRdData(tagHitSet)(to_integer(unsigned(cpuReqRegWord)));
+		
+		cacheStNext <= ST_IDLE;
 	end if;
 
       -----------------------------------------------------------------------
@@ -141,34 +177,38 @@ begin  -- architecture rtl
       -----------------------------------------------------------------------
       when ST_WR_HIT_TEST =>
 	if tagHitEn = '1' then
-		cacheDone<='1';
-		tagWrEn<='1';
-		tagWrSet<=tagHitSet;
-		tagWrDirty<='1';
-		tagAddr<=cpuReqRegAddr;
-		dataArrayWrEn<='1';
-		dataArrayWrWord<='1';
-		dataArrayWrSetIdx<=tagHitSet;
-		dataArrayWrData<=cpuReqRegData;
-		cacheSt <= ST_IDLE;
-	else cacheSt <= ST_WR_WAIT_BUS_GRANT;
+		cacheDone <= '1';
+		tagWrEn <= '1';
+		tagWrSet <= tagHitSet;
+		tagWrDirty <= '1';
+		tagAddr <= cpuReqRegAddr;
+		dataArrayWrEn <= '1';
+		dataArrayWrWord <= '1';
+		dataArrayWrSetIdx <= tagHitSet;
+		dataArrayWrData <= cpuReqRegData;
+		
+		cacheStNext <= ST_IDLE;
+	else
+		cacheStNext <= ST_WR_WAIT_BUS_GRANT;
 	end if;
 
       when ST_WR_WAIT_BUS_GRANT =>
 	if busGrant = '1' then
-		busReq<='1';
-		busOutEn<='1';
-		busCmd<=BUS_WRITE_WORD;
-		busAddrIn<=cpuRegReqAddr;
-		busDataIn<=cpuReqRegData;
-		cacheSt <= ST_WR_WAIT_BUS_COMPLETE;
-	else busReq <= '1';
+		busReq <= '1';
+		busOutEn <= '1';
+		busCmd <= BUS_WRITE_WORD;
+		busAddrIn <= cpuRegReqAddr;
+		busDataIn <= cpuReqRegData;
+		
+		cacheStNext <= ST_WR_WAIT_BUS_COMPLETE;
+	else
+		busReq <= '1';
 	end if;
 
       when ST_WR_WAIT_BUS_COMPLETE =>
 	if busGrant != '1' then
 		cacheDone <= '1';
-		cacheSt <= ST_IDLE;
+		cacheStNext <= ST_IDLE;
 	end if;
 
       when others => null;
@@ -211,6 +251,30 @@ begin  -- architecture rtl
       cacheSt <= cacheStNext;
 
       -- there should be more stuff here
+	  
+	  -- here is the VictimReg block
+		if victimRegWrEn = '1' then
+			victimReqSetIn <= tagVictimSet;
+			victimRegDirtyIn <= tagVictimDirty;
+			victimRegAddrIn <= tagVictimAddr;
+			-- pas sûre que ça marche
+			if tagVictimSet = '1' then
+				victimRegDataIn <= dataArrayRdData;
+			end if;
+			victimRegAddr <= victimRegAddr;
+			victimRegData <= victimRegData;
+		end if;
+		  
+		  -- here is the CpuReqReg block
+		if cpuReqRegWrEn = '1' then
+			cpuReqRegAddrIn <= cacheAddr;
+			cpuReqRegDataIn <= cacheWrData;
+			
+			cpuRegReqWord <= cpuReqRegWord;
+			busAddrIn <= cpuRegReqAddr & victimRegAddr;
+			busDataIn <= cpuReqRegData & victimRegData;
+		end if
+	  
   end process clk_proc;
 
 end architecture rtl;
