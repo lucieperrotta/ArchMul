@@ -39,13 +39,22 @@ begin  -- architecture rtl
     -- signal with dont care initialization here
 	--Default values (internal flags):
 	arbiterArbitrate<=0;
-	busOutEn<=0;
+	
 	--Default values (outputs):
 	busGrant<=0;
 	memCs<=0;
 
-	-- tri state buffer
+	-- tri state buffer (busOutEn<=0;)
 	busData <= (others => 'Z'); 
+
+	-- cmd decoder (all to 0, no command recieved)
+	memRead <= '0';
+	memWrite <= '0';
+	memWriteWord <= '0';
+
+	-- others
+	memAddr <= busAddr;
+	memWrData <= busData;
 
     -- control: state machine
     case busSt is
@@ -86,12 +95,23 @@ begin  -- architecture rtl
 
   
   clk_proc : process (clk, rst) is
-  begin  -- process clk_proc
+  begin  -- process clk_proc (combinatorial)
     if rst = '0' then                   -- asynchronous reset (active low)
       busSt <= ST_IDLE;
     elsif clk'event and clk = '1' then  -- rising clock edge
       busSt <= busStNext;
     end if;
+
+	-- cmdDecoder
+	if busCmd = BUS_WRITE_WORD then
+		memWriteWord <= '1';
+	else if busCmd = BUS_WRITE then
+		memWrite <= '1';
+	else if busCmd = BUS_READ then
+		memRead <= '1';
+	end if;
+	
+
   end process clk_proc;
 
 end architecture rtl;
