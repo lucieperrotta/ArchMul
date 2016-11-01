@@ -29,33 +29,29 @@ architecture rtl of BusController is
   signal arbiterReqValid  : std_logic;
   signal arbiterReqId     : std_logic_vector(CACHE_IDX_WIDTH-1 downto 0);
   
+  -- Tri State Buffer
+  signal busOutEn : std_logic;
+
 begin  -- architecture rtl
 
   comb_proc : process () is
   begin  -- process comb_proc
     -- signals that need initialization here
     busStNext <= busSt;
+    memDone <= '0';
 
-    -- signal with dont care initialization here
 	--Default values (internal flags):
-	arbiterArbitrate<=0;
+	arbiterArbitrate<='0';
 	
 	--Default values (outputs):
-	busGrant<=0;
-	memCs<=0;
+	busGrant<='0';
+	memCs<='0';
 
 	-- tri state buffer (busOutEn<=0;)
 	busData <= (others => 'Z'); 
+	busOutEn <= '0';
 
-	-- cmd decoder (all to 0, no command recieved)
-	memRead <= '0';
-	memWrite <= '0';
-	memWriteWord <= '0';
-
-	-- others
-	memAddr <= busAddr;
-	memWrData <= busData;
-
+	
     -- control: state machine
     case busSt is
       when ST_IDLE =>
@@ -72,7 +68,10 @@ begin  -- architecture rtl
 
       when ST_WAIT_MEM =>
 	if memDone = '1' then
-		busData <= memRdData; --busOutEn <= '1'; (tri state buffer)
+
+		-- busOutEn <= '1'; (tri state buffer)
+		busOutEn <= '1';
+		busData <= memRdData;
 		
 		busStNext <= ST_IDLE;
 	else
@@ -101,8 +100,16 @@ begin  -- architecture rtl
     elsif clk'event and clk = '1' then  -- rising clock edge
       busSt <= busStNext;
     end if;
+  end process clk_proc;
 
-	-- cmdDecoder
+-- cmdDecoder
+cmdDecoder : process(busCmd) is 
+begin
+ 	-- Default values (no command received)
+	memRead <= '0';
+	memWrite <= '0';
+	memWriteWord <= '0';
+
 	if busCmd = BUS_WRITE_WORD then
 		memWriteWord <= '1';
 	else if busCmd = BUS_WRITE then
@@ -110,8 +117,11 @@ begin  -- architecture rtl
 	else if busCmd = BUS_READ then
 		memRead <= '1';
 	end if;
-	
+  end process cmdDecoder;
 
-  end process clk_proc;
+-- others signals (direct in to out)
+	memAddr <= busAddr;
+	memWrData <= busData;
+
 
 end architecture rtl;
