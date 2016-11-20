@@ -1,0 +1,15 @@
+Changer les 5 schémas (enlever les WB things, victim reg...)
+Dessiner la snooping state machine
+Redessiner l'interface de tag array dans les diagrams
+
+==> diagrams
+Enlever mem write
+ajouter bus snoop valid dans la sortie de bus controller
+invalidate dans input de tagarray = tag invalidate (le signal vient de control de snoop machine)
+mux sur la tag adresse (either snoop or default cacheAddr)
+virer le tagsetDirty du tag
+enlever tous les victime truc
+bypass les victim truc et envoyer direct dans les outpts
+
+==> state machines
+bus controller qui set le signal snoop valid
