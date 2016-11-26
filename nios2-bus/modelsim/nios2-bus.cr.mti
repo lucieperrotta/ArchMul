@@ -1,0 +1,384 @@
+/home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/CPU.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/CPU.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPU
+-- Compiling architecture bdf_type of CPU
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/tag_array.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/tag_array.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling entity TagArray
+-- Compiling architecture rtl of TagArray
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/bus_arbiter.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/bus_arbiter.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling entity busArbiter
+-- Compiling architecture rtl of busArbiter
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/ram64.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/ram64.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling entity RAM64
+-- Compiling architecture synth of RAM64
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/bus_controller_tb.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/bus_controller_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package soc_components
+-- Compiling entity bus_controller_tb
+-- Compiling architecture test of bus_controller_tb
+-- Loading package mem_components
+-- Loading entity BusController
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_types.vhd {2 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_types.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package mem_types
+-- Compiling package body mem_types
+-- Loading package mem_types
+** Warning: /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_types.vhd(74): (vcom-1200) Function "flattenBlock" return type index bounds do not match RETURN value index bounds.
+** Warning: /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_types.vhd(106): (vcom-1200) Function "getTag" return type index bounds do not match RETURN value index bounds.
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x32.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x32.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity mux2x32
+-- Compiling architecture synth of mux2x32
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/MultiprocessorTestbench.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/MultiprocessorTestbench.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MultiprocessorTestbench
+-- Compiling architecture test of MultiprocessorTestbench
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package soc_components
+-- Loading entity FPGA4U
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/rgb_led96.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/rgb_led96.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package pack
+-- Compiling package body pack
+-- Loading package pack
+-- Loading package pack
+-- Compiling entity rgb_led96
+-- Compiling architecture arch of rgb_led96
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/decoder.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/decoder.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity decoder
+-- Compiling architecture synth of decoder
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_components.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/mem_components.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling package mem_components
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/bus_controller.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/bus_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package mem_components
+-- Compiling entity BusController
+-- Compiling architecture rtl of BusController
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x16.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x16.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity mux2x16
+-- Compiling architecture synth of mux2x16
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/FPGA4U.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/FPGA4U.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package soc_components
+-- Compiling entity FPGA4U
+-- Compiling architecture rtl of FPGA4U
+-- Loading entity RAM64
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/ROM_Block.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/ROM_Block.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ROM_Block
+-- Compiling architecture SYN of rom_block
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux3x32en.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux3x32en.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity mux3x32en
+-- Compiling architecture synth of mux3x32en
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/logic_unit.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/logic_unit.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity logic_unit
+-- Compiling architecture synth of logic_unit
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/shift_unit.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/shift_unit.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity shift_unit
+-- Compiling architecture synth of shift_unit
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/data_array.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/data_array.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling entity DataArray
+-- Compiling architecture rtl of DataArray
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/tb_base.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/tb_base.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_base
+-- Compiling architecture test of tb_base
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/soc_components.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/includes/soc_components.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Compiling package soc_components
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/comparator.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/comparator.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity comparator
+-- Compiling architecture synth of comparator
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/extend.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/extend.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity extend
+-- Compiling architecture synth of extend
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x5.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/common/mux2x5.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity mux2x5
+-- Compiling architecture synth of mux2x5
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/add_sub.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/add_sub.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity add_sub
+-- Compiling architecture synth of add_sub
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/ALU.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/ALU.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU
+-- Compiling architecture bdf_type of ALU
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/ROM.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/ROM.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ROM
+-- Compiling architecture synth of ROM
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/cache_controller_tb.vhd {2 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/cache_controller_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package soc_components
+-- Compiling entity cache_controller_tb
+-- Compiling architecture test of cache_controller_tb
+** Warning: /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/testbenches/cache_controller_tb.vhd(185): (vcom-1200) Function "get_addr" return type index bounds do not match RETURN value index bounds.
+-- Loading package mem_components
+-- Loading entity CacheController
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/IR.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/IR.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity IR
+-- Compiling architecture synth of IR
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/multiplexer.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/multiplexer.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity multiplexer
+-- Compiling architecture synth of multiplexer
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/PC.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/PC.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity PC
+-- Compiling architecture synth of PC
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/buttons.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/buttons.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity buttons
+-- Compiling architecture synth of buttons
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/FPGA4U_DE0.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/FPGA4U_DE0.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FPGA4U_DE0
+-- Compiling architecture bdf_type of FPGA4U_DE0
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/controller.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity controller
+-- Compiling architecture synth of controller
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/register_file.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/core/register_file.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity register_file
+-- Compiling architecture synth of register_file
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/LEDs.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/LEDs.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity LEDs
+-- Compiling architecture synth of LEDs
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/cache_controller.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/memory_hierarchy/cache_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package mem_types
+-- Loading package mem_components
+-- Compiling entity CacheController
+-- Compiling architecture rtl of CacheController
+
+} {} {}} /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/clk_pll.vhd {1 {vcom -work work -2002 -explicit /home/mdrumond/repos/cs-307-fall-2016/nios2-bus/vhdl/soc/clk_pll.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity clk_pll
+-- Compiling architecture SYN of clk_pll
+
+} {} {}}

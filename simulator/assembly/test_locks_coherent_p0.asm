@@ -19,9 +19,12 @@ main:
 		addi t0, zero, 255
 		stw t0, LEDS_DUTY(zero)
         addi t0, zero, 0
+        stw t0, SHARED_MEM(zero)
 		stw t0, LOCK_FLAG_0(zero)
-		stw t0,  LOCK_TURN(zero)
+		stw t0, LOCK_FLAG_1(zero)
+		stw t0, LOCK_TURN(zero)
 		stw t0, FINISHED_FLAG_0(zero)
+		stw t0, FINISHED_FLAG_1(zero)
 		addi t3, zero, 0
         addi t4, zero, 256
         ;; increment a memory counter 100 times in memory
@@ -76,7 +79,7 @@ while_locked:
         ldw t1, LOCK_TURN(zero)
         and t0, t0, t1
         bne t0, zero, while_locked ; wait while both are 1
-        ;; lock was ackired
+        ;; lock was acquired
         ret 
 
         ;; must save t0 before calling

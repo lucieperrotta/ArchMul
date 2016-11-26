@@ -19,8 +19,11 @@ main:
 		addi t0, zero, 255
 		stw t0, LEDS_DUTY(zero)
         addi t0, zero, 0
+        stw t0, SHARED_MEM(zero)
 		stw t0, LOCK_FLAG_0(zero)
-		stw t0,  LOCK_TURN(zero)
+		stw t0, LOCK_FLAG_1(zero)
+		stw t0, LOCK_TURN(zero)
+		stw t0, FINISHED_FLAG_0(zero)
 		stw t0, FINISHED_FLAG_1(zero)
 		addi t3, zero, 0
         addi t4, zero, 256
