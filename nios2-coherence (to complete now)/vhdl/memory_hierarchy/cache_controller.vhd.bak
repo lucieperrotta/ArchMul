@@ -70,8 +70,6 @@ begin  -- architecture rtl
     busReq   <= '0';
     busOutEn <= '0';
 
-    tagInvEn <= '0';
-
 
     -- signals with dont care initialization
     cacheRdData   <= (others => 'Z');
