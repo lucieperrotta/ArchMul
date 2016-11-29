@@ -91,25 +91,26 @@ begin  -- architecture rtl
 
     -- control: state machine
     case cacheSt is
-      when ST_IDLE =>
-		if (cacheCs = '1' && cacheRead = '1') then
-			cpuReqRegWrEn <= '1';
-			dataArrayAddr <= cacheAddr;
-			tagAddr <= cacheAddr;
-			
-			cacheSt <= ST_RD_HIT_TEST;
-		end if;
-			tagLookupEn <= '1';
+
       -----------------------------------------------------------------------
       -- Idle state (same for all)
       -----------------------------------------------------------------------
       when ST_IDLE => 
 	if(cacheCs = '1') then
+
+		cpuReqRegWrEn <= '1';
+		dataArrayAddr <= cacheAddr;
+		tagAddr <= cacheAddr;
+		tagLookupEn <= '1';
+
 		if(cacheWrite = '1') then
 			cacheStNext <= ST_WR_HIT_TEST;
 		elsif(cacheRead = '1') then
 			cacheStNext <= ST_RD_HIT_TEST;
 		end if;
+
+	elsif(arbiterReqValid = '1') then
+		cacheStNext <= ST_RD_HIT_TEST;
 	end if;
 
       -----------------------------------------------------------------------
@@ -121,12 +122,12 @@ begin  -- architecture rtl
 			cacheRdOutEn <= '1';
 			cacheRdData <= dataArrayRdData(to_integer(unsigned(tagHitSet)))(to_integer(unsigned(cpuReqRegAddr(0))));
 			
-			cacheSt <= ST_IDLE;
+			cacheStNext <= ST_IDLE;
 		else
 			victimRegWrEn <= '1';
 			
-			cacheSt <= ST_WR_WAIT_BUS_GRANT;
-		enf if;
+			cacheStNext <= ST_WR_WAIT_BUS_GRANT;
+		end if;
 
       when ST_RD_WAIT_BUS_GRANT =>
 		if (busGrant = '1') then
@@ -135,10 +136,11 @@ begin  -- architecture rtl
 			busCmd <= BUS_READ;
 			busAddrIn <= cpuReqRegAddr;
 			
-			cacheSt <= ST_WR_WAIT_BUS_COMPLETE;
+			cacheStNext <= ST_WR_WAIT_BUS_COMPLETE;
 		else
 			busReq <= '1';
-		enf if;
+		end if;
+
       when ST_RD_WAIT_BUS_COMPLETE =>
 		if (busGrant = '0') then
 			cacheDone <= '1';
@@ -151,7 +153,8 @@ begin  -- architecture rtl
 			dataArrayWrSetIdx <= victimRegSet;
 			dataArrayWrWord <= '0';
 			dataArrayData <= busData;
-			cacheSt <= ST_IDLE;
+
+			cacheStNext <= ST_IDLE;
 		end if;
 
       -----------------------------------------------------------------------

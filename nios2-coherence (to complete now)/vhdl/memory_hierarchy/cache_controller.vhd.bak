@@ -70,6 +70,8 @@ begin  -- architecture rtl
     busReq   <= '0';
     busOutEn <= '0';
 
+    tagInvEn <= '0';
+
 
     -- signals with dont care initialization
     cacheRdData   <= (others => 'Z');
@@ -95,21 +97,64 @@ begin  -- architecture rtl
       -----------------------------------------------------------------------
       when ST_IDLE => 
 	if(cacheCs = '1') then
+
+		cpuReqRegWrEn <= '1';
+		dataArrayAddr <= cacheAddr;
+		tagAddr <= cacheAddr;
+		tagLookupEn <= '1';
+
 		if(cacheWrite = '1') then
 			cacheStNext <= ST_WR_HIT_TEST;
 		elsif(cacheRead = '1') then
 			cacheStNext <= ST_RD_HIT_TEST;
 		end if;
+
+	elsif(arbiterReqValid = '1') then
+		cacheStNext <= ST_RD_HIT_TEST;
 	end if;
 
       -----------------------------------------------------------------------
       -- Rdb state machine
       -----------------------------------------------------------------------
       when ST_RD_HIT_TEST =>
+		if (tagHitEn = '1' && cpuReqRegWillInvalidate = '0') then
+			cacheDone <= '1';
+			cacheRdOutEn <= '1';
+			cacheRdData <= dataArrayRdData(to_integer(unsigned(tagHitSet)))(to_integer(unsigned(cpuReqRegAddr(0))));
+			
+			cacheStNext <= ST_IDLE;
+		else
+			victimRegWrEn <= '1';
+			
+			cacheStNext <= ST_WR_WAIT_BUS_GRANT;
+		end if;
 
       when ST_RD_WAIT_BUS_GRANT =>
+		if (busGrant = '1') then
+			busReq <= '1';
+			busOutEn <= '1';
+			busCmd <= BUS_READ;
+			busAddrIn <= cpuReqRegAddr;
+			
+			cacheStNext <= ST_WR_WAIT_BUS_COMPLETE;
+		else
+			busReq <= '1';
+		end if;
 
       when ST_RD_WAIT_BUS_COMPLETE =>
+		if (busGrant = '0') then
+			cacheDone <= '1';
+			cacheRdOutEn <= '1';
+			cacheRdDataIn <= busDataWord;
+			tagWrEn <= '1';
+			tagWrSet <= victimRegSet;
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimRegSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			cacheStNext <= ST_IDLE;
+		end if;
 
       -----------------------------------------------------------------------
       -- wr state machine
