@@ -22,6 +22,21 @@ entity CacheController is
 end entity CacheController;
 
 architecture rtl of CacheController is
+  type cpu_req_reg_t is record
+    wasInvalidatedIn : std_logic; -- cpuReqRegWasInvalidatedIn
+    addr : std_logic_vector(WORD_ADDR_WIDTH-1 downto 0);
+    data : data_word_t;
+  end record cpu_req_reg_t;
+
+  signal cpuReqRegWrEn : std_logic;
+  signal cpuReqReg     : cpu_req_reg_t;
+  signal cpuReqRegWord : std_logic_vector(WORD_OFFSET_WIDTH-1 downto 0);
+
+  type victim_reg_t is record
+    set   : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
+  end record victim_reg_t;
+  signal victimRegWrEn : std_logic;
+  signal victimReg     : victim_reg_t;
 
   type cache_ctrl_state_t is (ST_IDLE, ST_RD_HIT_TEST, ST_RD_WAIT_BUS_GRANT,
                               ST_RD_WAIT_BUS_COMPLETE,
@@ -30,7 +45,7 @@ architecture rtl of CacheController is
 
   type snoop_state_t is (ST_SNOOP_IDLE, ST_SNOOP_INVALIDATING);
   signal snoopStNext, snoopSt : snoop_state_t := ST_SNOOP_IDLE;
-
+  -- TIM
   -- tag Array
   signal tagLookupEn, tagWrEn, tagInvEn                                    : std_logic;
   signal tagWrSet                                                          : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
@@ -52,7 +67,11 @@ architecture rtl of CacheController is
 -- 
 begin  -- architecture rtl
 
-  comb_proc : process () is
+  comb_proc : process (busAddrIn, busCmdIn, busData, busDataIn, busGrant,
+                       busOutEn, cacheAddr, cacheCs, cacheRead, cacheSt,
+                       cacheWrite, cpuReqReg, cpuReqRegWord,
+                       dataArrayRdData, tagHitEn, tagHitSet,
+                       tagVictimSet, victimReg) is
   begin  -- process comb_proc
     -- signals that need initialization
     cacheStNext <= cacheSt;
@@ -153,6 +172,7 @@ begin  -- architecture rtl
 			dataArrayWrSetIdx <= victimRegSet;
 			dataArrayWrWord <= '0';
 			dataArrayData <= busData;
+
 			cacheStNext <= ST_IDLE;
 		end if;
 
@@ -207,6 +227,18 @@ begin  -- architecture rtl
     end case;
 
     -- datapath:
+  if busOutEn = '1' then
+      busCmd  <= busCmdIn;
+      busAddr <= busAddrIn;
+      busData <= busDataIn;
+    else
+      busCmd  <= (others => 'Z');
+      busAddr <= (others => 'Z');
+      busData <= DATA_BLOCK_HIGH_IMPEDANCE;
+    end if;
+
+    cpuReqRegWord <= std_logic_vector(to_unsigned(getWordOffset(cpuReqReg.addr), cpuReqRegWord'length));
+
   end process comb_proc;
 
   TagArray_1 : TagArray
@@ -242,6 +274,18 @@ begin  -- architecture rtl
       snoopSt <= snoopStNext;
 
       -- other regs go here
+ if cpuReqRegWrEn = '1' then
+        cpuReqReg.addr <= cacheAddr;
+        cpuReqReg.data <= cacheWrData;
+      end if;
+
+      if victimRegWrEn = '1' then
+        victimReg.set   <= tagVictimSet;
+        victimReg.dirty <= tagVictimDirty;
+        victimReg.addr  <= tagVictimAddr;
+        victimReg.data  <= dataArrayRdData(to_integer(unsigned(tagVictimSet)));
+      end if;
+
     end if;
   end process clk_proc;
 
