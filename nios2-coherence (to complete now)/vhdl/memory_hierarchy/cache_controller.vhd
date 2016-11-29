@@ -90,15 +90,55 @@ begin  -- architecture rtl
     -- control: state machine
     case cacheSt is
       when ST_IDLE =>
-
+		if (cacheCs = '1' && cacheRead = '1') then
+			cpuReqRegWrEn <= '1';
+			dataArrayAddr <= cacheAddr;
+			tagAddr <= cacheAddr;
+			tagLookupEn <= '1';
+			
+			cacheSt <= ST_RD_HIT_TEST;
+		end if;
       -----------------------------------------------------------------------
       -- Rdb state machine
       -----------------------------------------------------------------------
       when ST_RD_HIT_TEST =>
+		if (tagHitEn = '1' && cpuReqRegWillInvalidate = '0') then
+			cacheDone <= '1';
+			cacheRdOutEn <= '1';
+			cacheRdData <= dataArrayRdData(to_integer(unsigned(tagHitSet)))(to_integer(unsigned(cpuReqRegAddr(0))));
+			
+			cacheSt <= ST_IDLE;
+		else
+			victimRegWrEn <= '1';
+			
+			cacheSt <= ST_WR_WAIT_BUS_GRANT;
+		enf if;
 
       when ST_RD_WAIT_BUS_GRANT =>
-
+		if (busGrant = '1') then
+			busReq <= '1';
+			busOutEn <= '1';
+			busCmd <= BUS_READ;
+			busAddrIn <= cpuReqRegAddr;
+			
+			cacheSt <= ST_WR_WAIT_BUS_COMPLETE;
+		else
+			busReq <= '1';
+		enf if;
       when ST_RD_WAIT_BUS_COMPLETE =>
+		if (busGrant = '0') then
+			cacheDone <= '1';
+			cacheRdOutEn <= '1';
+			cacheRdDataIn <= busDataWord;
+			tagWrEn <= '1';
+			tagWrSet <= victimRegSet;
+			tagAddr <= cpuReqRegAddr;
+			dataArrayWrEn <= '1';
+			dataArrayWrSetIdx <= victimRegSet;
+			dataArrayWrWord <= '0';
+			dataArrayData <= busData;
+			cacheSt <= ST_IDLE;
+		end if;
 
       -----------------------------------------------------------------------
       -- wr state machine
