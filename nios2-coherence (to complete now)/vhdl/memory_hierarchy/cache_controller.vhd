@@ -22,6 +22,17 @@ entity CacheController is
 end entity CacheController;
 
 architecture rtl of CacheController is
+
+  -- States support
+  type cache_ctrl_state_t is (ST_IDLE, ST_RD_HIT_TEST, ST_RD_WAIT_BUS_GRANT,
+                              ST_RD_WAIT_BUS_COMPLETE,
+                              ST_WR_HIT_TEST, ST_WR_WAIT_BUS_GRANT, ST_WR_WAIT_BUS_COMPLETE);
+  signal cacheStNext, cacheSt : cache_ctrl_state_t := ST_IDLE;
+
+  type snoop_state_t is (ST_SNOOP_IDLE, ST_SNOOP_INVALIDATING);
+  signal snoopStNext, snoopSt : snoop_state_t := ST_SNOOP_IDLE;
+  
+  -- cpu req reg
   type cpu_req_reg_t is record
     wasInvalidatedIn : std_logic; -- cpuReqRegWasInvalidatedIn
     addr : std_logic_vector(WORD_ADDR_WIDTH-1 downto 0);
@@ -31,27 +42,22 @@ architecture rtl of CacheController is
   signal cpuReqRegWrEn : std_logic;
   signal cpuReqReg     : cpu_req_reg_t;
   signal cpuReqRegWord : std_logic_vector(WORD_OFFSET_WIDTH-1 downto 0);
+  signal cpuReqRegWillInvalidate : std_logic;
 
+  -- Victim reg
   type victim_reg_t is record
     set   : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
   end record victim_reg_t;
   signal victimRegWrEn : std_logic;
   signal victimReg     : victim_reg_t;
 
-  type cache_ctrl_state_t is (ST_IDLE, ST_RD_HIT_TEST, ST_RD_WAIT_BUS_GRANT,
-                              ST_RD_WAIT_BUS_COMPLETE,
-                              ST_WR_HIT_TEST, ST_WR_WAIT_BUS_GRANT, ST_WR_WAIT_BUS_COMPLETE);
-  signal cacheStNext, cacheSt : cache_ctrl_state_t := ST_IDLE;
-
-  type snoop_state_t is (ST_SNOOP_IDLE, ST_SNOOP_INVALIDATING);
-  signal snoopStNext, snoopSt : snoop_state_t := ST_SNOOP_IDLE;
-  -- TIM
   -- tag Array
   signal tagLookupEn, tagWrEn, tagInvEn                                    : std_logic;
   signal tagWrSet                                                          : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
   signal tagAddr, tagInvAddr                                               : std_logic_vector(WORD_ADDR_WIDTH-1 downto 0);
   signal tagHitEn                                                          : std_logic;
   signal tagHitSet, tagVictimSet                                           : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
+  
   -- data array
   signal dataArrayWrEn, dataArrayWrWord                                    : std_logic;
   signal dataArrayWrSetIdx                                                 : std_logic_vector(SET_ADDR_WIDTH-1 downto 0);
@@ -64,6 +70,11 @@ architecture rtl of CacheController is
   signal busAddrIn : std_logic_vector(WORD_ADDR_WIDTH-1 downto 0);
   signal busCmdIn  : bus_cmd_t;
   signal busDataIn : data_block_t;
+
+  -- other datapath signals
+  signal currReqWillInvalidate : std_logic;
+  signal busWillInvalidate : std_logic;
+
 -- 
 begin  -- architecture rtl
 
@@ -76,7 +87,7 @@ begin  -- architecture rtl
     -- signals that need initialization
     cacheStNext <= cacheSt;
     cacheDone   <= '0';
-	cacheRdOutEn <= '0';
+    cacheRdOutEn <= '0';
 
     cpuReqRegWrEn <= '0';
     victimRegWrEn <= '0';
@@ -91,7 +102,10 @@ begin  -- architecture rtl
     busOutEn <= '0';
 
     tagInvEn <= '0';
-	tagWrSetDirty <= '0';
+    tagWrSetDirty <= '0';
+
+    currReqWillInvalidate <= '0';
+    busWillInvalidate <= '0';
 
     -- signals with dont care initialization
     cacheRdData   <= (others => 'Z');

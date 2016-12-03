@@ -76,6 +76,7 @@ begin  -- architecture rtl
     -- signals that need initialization
     cacheStNext <= cacheSt;
     cacheDone   <= '0';
+	cacheRdOutEn <= '0';
 
     cpuReqRegWrEn <= '0';
     victimRegWrEn <= '0';
@@ -90,7 +91,7 @@ begin  -- architecture rtl
     busOutEn <= '0';
 
     tagInvEn <= '0';
-
+	tagWrSetDirty <= '0';
 
     -- signals with dont care initialization
     cacheRdData   <= (others => 'Z');
@@ -136,7 +137,7 @@ begin  -- architecture rtl
       -- Rdb state machine
       -----------------------------------------------------------------------
       when ST_RD_HIT_TEST =>
-		if (tagHitEn = '1' && cpuReqRegWillInvalidate = '0') then
+		if (tagHitEn = '1' and cpuReqRegWillInvalidate = '0') then
 			cacheDone <= '1';
 			cacheRdOutEn <= '1';
 			cacheRdData <= dataArrayRdData(to_integer(unsigned(tagHitSet)))(to_integer(unsigned(cpuReqRegAddr(0))));
@@ -191,16 +192,16 @@ begin  -- architecture rtl
       when ST_WR_WAIT_BUS_GRANT =>
 	busReq<='1';
 	if(busGrant = '1') then
-		busOutEn<=1;
-		busCmd<=BUS_WRITE;
-		busAddrIn<=cpuRegReqAddr;
-		busDataIn<=cpuReqRegData;
+		busOutEn <= '1';
+		busCmd <= BUS_WRITE;
+		busAddrIn <= cpuRegReqAddr;
+		busDataIn <= cpuReqRegData;
 		cacheStNext <= ST_WR_WAIT_BUS_COMPLETE;
 	end if;
 
       when ST_WR_WAIT_BUS_COMPLETE =>
-	if(busGrant='0') then
-		cacheDone<='1';
+	if(busGrant = '0') then
+		cacheDone <= '1';
 		cacheStNext <= ST_IDLE;
 	end if;
 
@@ -241,6 +242,14 @@ begin  -- architecture rtl
 
   end process comb_proc;
 
+  
+  busWillInvalidate <= '1' when ((busCmd = BUS_WRITE) and busSnoopValid and not(busGrant)
+  
+  currReqWillInvalidate <= '1' when ((cacheAddr = busAddr) and busWillInvalidate)
+  
+  cpuReqRegWillInvalidate <= '1' when (((cpuReqRegAddr = busAddr) and busWillInvalidate) or cpuReqRegWasInvalidated)
+  
+  
   TagArray_1 : TagArray
     port map (
       clk          => clk,
@@ -274,7 +283,7 @@ begin  -- architecture rtl
       snoopSt <= snoopStNext;
 
       -- other regs go here
- if cpuReqRegWrEn = '1' then
+      if cpuReqRegWrEn = '1' then
         cpuReqReg.addr <= cacheAddr;
         cpuReqReg.data <= cacheWrData;
       end if;
